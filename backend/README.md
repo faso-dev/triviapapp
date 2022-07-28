@@ -116,7 +116,7 @@ flask run --reload
 - Deletes a question.
 - Request Arguments:
     - `id`: The ID of the question to delete.
-- Returns : The ID of the question that was deleted.
+- Returns : No returns
 - Errors :
     - 404: If the question does not exist.
     - 422: If the request data is invalid.
@@ -183,6 +183,17 @@ flask run --reload
     - `previous_questions`: A list of previous questions.
     - `quiz_category`: The quiz category.
 - Return a random question within the given category and that is not one of the previous questions.
+  
+  ```json
+  {
+    "id": 1,
+    "category": "1",
+    "difficulty": 5,
+    "question": "In the &quot;The Legend of Zelda&quot; series, what is the name of the &quot;Master Sword&quot;?",
+    "answer": "Master Sword"
+  }
+  ```
+
 - Errors :
     - 404: If the category does not exist.
     - 422: If the request data is invalid.
