@@ -24,7 +24,7 @@ class FormView extends Component {
         $.ajax({
             url: `${config.API_BASE_URL}/api/categories`, //TODO: update request URL
             type: 'GET', success: (result) => {
-                this.setState({categories: result.categories});
+                this.setState({categories: result.categories, category: `${result.categories[0]?.id}`});
                 return;
             }, error: (error) => {
                 alert('Unable to load categories. Please try your request again');
