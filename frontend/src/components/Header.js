@@ -1,45 +1,30 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../stylesheets/Header.css';
+import {NavLink} from "react-router-dom";
 
 class Header extends Component {
-  navTo(uri) {
-    window.location.href = window.location.origin + uri;
-  }
-
-  render() {
-    return (
-      <div className='App-header'>
-        <h1
-          onClick={() => {
-            this.navTo('');
-          }}
-        >
-          Udacitrivia
-        </h1>
-        <h2
-          onClick={() => {
-            this.navTo('');
-          }}
-        >
-          List
-        </h2>
-        <h2
-          onClick={() => {
-            this.navTo('/add');
-          }}
-        >
-          Add
-        </h2>
-        <h2
-          onClick={() => {
-            this.navTo('/play');
-          }}
-        >
-          Play
-        </h2>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <header className="fixed-top">
+                <nav className='container navbar flex space-between items-center'>
+                    <NavLink to='/' className='logo'>
+                        <h2>Udacitrivia</h2>
+                    </NavLink>
+                    <ul className="items">
+                        <li className="item">
+                            <NavLink to={'/questions'}>List</NavLink>
+                        </li>
+                        <li className="item">
+                            <NavLink to={'/add'}>Add question</NavLink>
+                        </li>
+                        <li className="item">
+                            <NavLink to={'/play'}>Play</NavLink>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        );
+    }
 }
 
 export default Header;
