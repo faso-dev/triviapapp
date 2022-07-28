@@ -78,7 +78,6 @@ class TriviaTestCase(unittest.TestCase):
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        self.assertEqual(data['deleted'], question.id)
 
     # test we can not delete a question with an inexistent id with questions delete endpoint
     def test_delete_question_404(self):
