@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://127.0.0.1:5000/",
   "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.18.9",
     "corsproxy": "^1.5.0",
     "jquery": "^3.4.1",
     "react": "^16.8.6",
