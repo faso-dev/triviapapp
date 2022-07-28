@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import '../stylesheets/QuizView.css';
-import BaseLayout from "../Layout/BaseLayout";
+import BaseLayout from "../layout/base-layout";
 import {config} from "../config/config";
 
 const questionsPerPlay = 5;

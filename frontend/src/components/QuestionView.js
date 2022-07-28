@@ -3,7 +3,7 @@ import '../stylesheets/App.css';
 import Question from './Question';
 import Search from './Search';
 import $ from 'jquery';
-import BaseLayout from "../Layout/BaseLayout";
+import BaseLayout from "../layout/base-layout";
 import {NavLink} from "react-router-dom";
 import {config} from "../config/config";
 

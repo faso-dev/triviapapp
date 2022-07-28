@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import '../stylesheets/FormView.css';
-import BaseLayout from "../Layout/BaseLayout";
+import BaseLayout from "../layout/base-layout";
 import {config} from "../config/config";
 
 class FormView extends Component {
