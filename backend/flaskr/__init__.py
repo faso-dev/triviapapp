@@ -16,7 +16,7 @@ QUESTIONS_PER_PAGE = 10
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__)
-    db = setup_db(app)
+    setup_db(app)
 
     """
     @TODO: Set up CORS. Allow '*' for origins. Delete the sample route after completing the TODOs
@@ -98,21 +98,15 @@ def create_app(test_config=None):
 
     @app.route('/api/questions/<int:question_id>', methods=['DELETE'])
     def delete_question(question_id):
-        try:
-            # we try to get the question that matches the given question_id,
-            # if we can't find it, we delete the question_id from the database
-            # 'or' we abort the request with a 404 error
-            delete_question_or_abort_404(question_id)
+        # we try to get the question that matches the given question_id,
+        # if we can't find it, we delete the question_id from the database
+        # 'or' we abort the request with a 404 error
+        delete_question_or_abort_404(question_id)
 
-            # We return a success message
-            return jsonify({
-                'success': True,
-                'deleted': question_id
-            })
-        except Exception as e:
-            db.rollback()
-            print(e)
-            abort(400)
+        # We return a success message
+        return jsonify({
+            'success': True
+        })
 
     """
     @TODO:
@@ -138,21 +132,14 @@ def create_app(test_config=None):
             # if there are errors, return a 422 error with the violations
             json_abort_422('Unprocessable Entity', violations)
 
-        try:
+        # now we're sure the data is valid, we can create the question
+        question = create_and_persist_question(body)
 
-            # now we're sure the data is valid, we can create the question
-            question = create_and_persist_question(body)
-
-            return jsonify({
-                'success': True,
-                'question': question.format(),
-                'message': 'Question created successfully'
-            })
-
-        except Exception as e:
-            db.session.rollback()
-            print(e)
-            abort(400)
+        return jsonify({
+            'success': True,
+            'question': question.format(),
+            'message': 'Question created successfully'
+        })
 
     """
     @TODO:
@@ -224,7 +211,7 @@ def create_app(test_config=None):
 
     @app.route('/api/quizzes', methods=['POST'])
     @cross_origin()
-    def get_quiz_questions():
+    def get_quiz_question():
         body = request.get_json()
         previous_questions = body.get('previous_questions')
         quiz_category = body.get('quiz_category')
@@ -269,18 +256,13 @@ def create_app(test_config=None):
             # if there are errors, return a 422 error with the violations
             json_abort_422('Unprocessable Entity', violations)
 
-        try:
-            # now we're sure the data is valid, we can create the category
-            category = create_and_persist_category(body)
+        # now we're sure the data is valid, we can create the category
+        category = create_and_persist_category(body)
 
-            return jsonify({
-                'success': True,
-                'category': category.format()
-            })
-        except Exception as e:
-            db.rollback()
-            print(e)
-            abort(400)
+        return jsonify({
+            'success': True,
+            'category': category.format()
+        })
 
     """
     @TODO:
