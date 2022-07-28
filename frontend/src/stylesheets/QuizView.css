@@ -1,32 +1,51 @@
 .quiz-play-holder {
-    width: 80%;
-    margin-left: 10%;
     text-align: center;
     margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 600px;
+    width: 100%;
+}
+
+.quiz-answer {
+    color: green;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all .6s ease-in-out;
+    animation: animateTopToBottom 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .category-holder {
     margin-top: 16px;
     font-size: 24px;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .choose-header {
-    font-size: 34px;
-    font-weight: bold;
+    font-size: 28px;
+    color: #0d6efd;
+    margin-bottom: 2rem;
+}
+
+.play-category {
+    padding: .7rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: #0d6efd;
+    border-bottom: solid 1px #0d6efd;
 }
 
 .play-category:hover {
-    color: dodgerblue;
+    background-color: #0d6efd;
+    color: white;
+    cursor: pointer;
 }
 
-.button {
-    width: 100px;
-    margin-top: 5px;
-    background-color: dodgerblue;
-    color: white;
-    padding: 3px 5px;
-    align-self: center;
-}
 
 div.button {
     margin-top: 20px;
@@ -34,8 +53,9 @@ div.button {
 }
 
 .quiz-question {
-    margin: 12px;
     font-size: 24px;
+    max-width: 500px;
+    margin: 1.5rem auto;
 }
 
 .correct {
